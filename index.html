@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniela Martín Osuna · Educación Infantil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF7EF;
+    --cream-deep:#F3ECDD;
+    --ink:#33392F;
+    --ink-soft:#5C6354;
+    --coral:#E8B4C0;
+    --coral-deep:#C9899B;
+    --sage:#92AD86;
+    --sage-deep:#6F8C64;
+    --blue:#AFC6DC;
+    --blue-deep:#7FA0C2;
+    --butter:#F3CE7A;
+    --white:#FFFFFF;
+    --shadow: 0 18px 40px -22px rgba(51,57,47,0.35);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Plus Jakarta Sans', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  h1,h2,h3,h4{font-family:'Fraunces', serif; font-weight:600; line-height:1.1; letter-spacing:-0.01em;}
+  .container{max-width:1180px; margin:0 auto; padding:0 32px;}
+  section{position:relative;}
+
+  /* ---------- Felt tag / signature element ---------- */
+  .felt-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    font-size:1.35rem;
+    color:var(--coral-deep);
+    background:var(--white);
+    padding:6px 22px;
+    border-radius:3px;
+    border:2.5px solid var(--butter);
+    position:relative;
+    transform:rotate(-1.5deg);
+    box-shadow: var(--shadow);
+  }
+  .felt-tag::before, .felt-tag::after{
+    content:"";
+    position:absolute;
+    width:10px; height:10px;
+    background:var(--coral);
+    border-radius:50%;
+    top:-6px;
+  }
+  .felt-tag::before{left:-6px;}
+  .felt-tag::after{right:-6px;}
+
+  /* ---------- Dotted path divider (mapa de la granja motif) ---------- */
+  .path-divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin:0 auto;
+    padding:46px 0;
+    max-width:1180px;
+  }
+  .path-divider .dot{
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--sage);
+    opacity:.55;
+  }
+  .path-divider .stone{
+    width:34px; height:22px;
+    border-radius:50% 50% 45% 45%;
+    background:var(--coral);
+    opacity:.7;
+  }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(251,247,239,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(51,57,47,0.08);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px;
+    max-width:1180px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    font-size:1.7rem;
+    color:var(--ink);
+  }
+  .logo span{color:var(--coral-deep);}
+  .nav-links{
+    display:flex; gap:34px;
+    font-size:0.95rem; font-weight:600;
+  }
+  .nav-links a{
+    position:relative;
+    padding:4px 0;
+    color:var(--ink-soft);
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--coral-deep);}
+  .nav-cta{
+    background:var(--ink);
+    color:var(--cream)!important;
+    padding:10px 22px;
+    border-radius:30px;
+    font-weight:700;
+    font-size:0.9rem;
+  }
+  .burger{display:none; cursor:pointer; font-size:1.6rem; background:none; border:none; color:var(--ink);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:84px 0 40px;
+    overflow:hidden;
+  }
+  .hero .container{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:60px;
+    align-items:center;
+  }
+  .hero-eyebrow{margin-bottom:22px;}
+  .hero h1{
+    font-size:clamp(2.5rem, 4.4vw, 3.8rem);
+    color:var(--ink);
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--coral-deep);
+  }
+  .hero p.lead{
+    font-size:1.12rem;
+    color:var(--ink-soft);
+    max-width:480px;
+    margin-bottom:34px;
+  }
+  .btn-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 28px;
+    border-radius:30px;
+    font-weight:700;
+    font-size:0.95rem;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .btn-primary{
+    background:var(--coral-deep);
+    color:var(--white);
+    box-shadow:0 14px 28px -12px rgba(224,127,88,0.55);
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-outline{
+    border:2px solid var(--ink);
+    color:var(--ink);
+  }
+  .btn-outline:hover{background:var(--ink); color:var(--cream);}
+
+  .hero-visual{
+    position:relative;
+    display:flex; justify-content:center;
+  }
+  .hero-visual .frame{
+    width:88%;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    border:6px solid var(--white);
+    transform:rotate(2deg);
+  }
+  .hero-visual .badge{
+    position:absolute;
+    bottom:-18px; left:0;
+    background:var(--white);
+    padding:14px 20px;
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    display:flex; align-items:center; gap:12px;
+    transform:rotate(-3deg);
+    min-width:230px;
+  }
+  .hero-visual .badge .dot{
+    width:38px; height:38px; border-radius:50%;
+    background:var(--sage); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.2rem;
+    transition:background 0.3s ease;
+  }
+  .hero-visual .badge strong{font-size:0.85rem; display:block; color:var(--ink);}
+  .hero-visual .badge span{font-size:0.78rem; color:var(--ink-soft);}
+  .hero-visual .badge .badge-text{
+    opacity:1;
+    transition:opacity 0.35s ease;
+  }
+  .hero-visual .badge .badge-text.fading{opacity:0;}
+  .hero-visual .badge-dots{
+    position:absolute;
+    bottom:-34px; left:20px;
+    display:flex; gap:5px;
+  }
+  .hero-visual .badge-dots span{
+    width:5px; height:5px; border-radius:50%;
+    background:var(--cream-deep);
+    transition:background 0.3s ease, transform 0.3s ease;
+  }
+  .hero-visual .badge-dots span.active{background:var(--sage); transform:scale(1.4);}
+
+  /* ---------- Section heading pattern ---------- */
+  .section-head{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 56px;
+  }
+  .section-head h2{
+    font-size:clamp(2rem, 3.4vw, 2.7rem);
+    margin:18px 0 14px;
+  }
+  .section-head p{color:var(--ink-soft); font-size:1.04rem;}
+
+  /* ---------- Sobre mi ---------- */
+  .about{padding:30px 0 10px;}
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.8fr 1.2fr;
+    gap:64px;
+    align-items:start;
+  }
+  .about-text p{color:var(--ink-soft); margin-bottom:16px; font-size:1.02rem;}
+  .pill-group-label{font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--sage); margin:22px 0 10px;}
+  .pill-group-label:first-of-type{margin-top:20px;}
+  .pill-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .pill{
+    background:var(--white);
+    border:1.5px solid var(--cream-deep);
+    padding:6px 13px;
+    border-radius:30px;
+    font-size:0.78rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    box-shadow:var(--shadow);
+    white-space:nowrap;
+  }
+  .formacion-list{
+    background:var(--white);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .formacion-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:14px;
+    padding:11px 16px;
+    border-bottom:1px solid var(--cream-deep);
+  }
+  .formacion-item:last-child{border-bottom:none;}
+  .formacion-item strong{font-size:0.87rem; color:var(--ink); font-weight:600;}
+  .formacion-item span{font-size:0.76rem; color:var(--ink-soft); white-space:nowrap; text-align:right; flex-shrink:0;}
+
+  .timeline{position:relative; padding-left:28px; border-left:2.5px dotted var(--sage);}
+  .tl-item{position:relative; padding-bottom:30px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";
+    position:absolute; left:-34px; top:4px;
+    width:14px; height:14px;
+    background:var(--coral);
+    border-radius:50%;
+    border:3px solid var(--cream);
+  }
+  .tl-item h4{font-size:1.08rem; margin-bottom:4px;}
+  .tl-item .tl-meta{font-size:0.85rem; color:var(--coral-deep); font-weight:700; margin-bottom:6px;}
+  .tl-item p{color:var(--ink-soft); font-size:0.95rem;}
+
+  /* ---------- Proyectos ---------- */
+  .projects{padding:20px 0 40px; background:var(--cream-deep);}
+  .project-block{padding:70px 0;}
+  .project-block + .project-block{border-top:1px solid rgba(51,57,47,0.08);}
+
+  .project-top{
+    display:flex; align-items:center; gap:18px; margin-bottom:18px; flex-wrap:wrap;
+  }
+  .project-top .num{
+    font-family:'Fraunces',serif; font-size:1rem; font-weight:600;
+    color:var(--sage-deep); background:var(--white); padding:6px 14px; border-radius:30px;
+  }
+  .project-block h3{font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:14px;}
+  .project-block > .container > p.desc{
+    color:var(--ink-soft); max-width:680px; margin-bottom:36px; font-size:1.02rem;
+  }
+
+  .gallery-feature{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:28px;
+    margin-bottom:28px;
+  }
+  .gallery-feature .main-img, .gallery-feature .side-stack{border-radius:18px; overflow:hidden; box-shadow:var(--shadow);}
+  .gallery-feature .main-img img{height:100%; object-fit:cover; min-height:380px;}
+  .side-stack{display:flex; flex-direction:column; gap:28px;}
+  .side-stack .ph{border-radius:18px; overflow:hidden; box-shadow:var(--shadow); flex:1;}
+  .side-stack .ph img{height:100%; object-fit:cover; min-height:175px;}
+
+  .caption{font-size:0.82rem; color:var(--ink-soft); margin-top:10px; font-style:italic;}
+
+  .mini-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-top:10px;
+  }
+  .mini-card{
+    background:var(--white);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .mini-card img{height:150px; width:100%; object-fit:cover;}
+  .mini-card .label{padding:12px 14px; font-size:0.85rem; font-weight:700;}
+
+  .video-wrap{
+    margin-top:48px;
+    background:var(--white);
+    border-radius:22px;
+    padding:34px;
+    box-shadow:var(--shadow);
+    display:grid;
+    grid-template-columns:0.6fr 1fr;
+    gap:36px;
+    align-items:center;
+  }
+  .video-wrap video{
+    width:100%;
+    border-radius:14px;
+    max-height:480px;
+    background:#000;
+    box-shadow:0 10px 24px -10px rgba(0,0,0,0.4);
+  }
+  .video-wrap h4{font-size:1.4rem; margin-bottom:12px;}
+  .video-wrap p{color:var(--ink-soft); margin-bottom:10px;}
+
+  .obj-list{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:30px;}
+  .obj-item{
+    background:var(--white);
+    padding:18px 20px;
+    border-radius:14px;
+    border-left:4px solid var(--sage);
+    font-size:0.92rem;
+    color:var(--ink-soft);
+  }
+  .obj-item strong{display:block; color:var(--ink); font-size:0.95rem; margin-bottom:4px; font-family:'Fraunces',serif; font-weight:600;}
+
+  /* ---------- Sesiones ---------- */
+  .sessions-block{margin-top:54px;}
+  .sessions-title{font-size:1.3rem; margin-bottom:24px;}
+  .sessions-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:16px;
+  }
+  .session-card{
+    background:var(--white);
+    border-radius:16px;
+    padding:22px 18px;
+    box-shadow:var(--shadow);
+  }
+  .session-num{
+    display:inline-block;
+    font-size:0.72rem;
+    font-weight:800;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--coral-deep);
+    margin-bottom:10px;
+  }
+  .session-card h5{font-size:1.02rem; margin-bottom:8px;}
+  .session-card p{font-size:0.85rem; color:var(--ink-soft); line-height:1.5;}
+
+  .cronograma-wrap{
+    margin-top:26px;
+    background:var(--white);
+    border-radius:16px;
+    padding:18px;
+    box-shadow:var(--shadow);
+  }
+  .cronograma-wrap img{border-radius:8px; width:100%;}
+
+  .infografia-wrap{
+    position:relative;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .infografia-wrap img{width:100%; display:block;}
+  .hotspot{
+    position:absolute;
+    width:34px; height:34px;
+    border-radius:50%;
+    border:none;
+    background:rgba(201,137,155,0.0);
+    cursor:pointer;
+    transform:translate(-50%,-50%);
+    transition:background .2s, box-shadow .2s;
+  }
+  .hotspot:hover, .hotspot:focus-visible{
+    background:rgba(201,137,155,0.28);
+    box-shadow:0 0 0 8px rgba(201,137,155,0.16);
+    outline:none;
+  }
+
+  /* ---------- Lightbox ---------- */
+  .lb-item{cursor:zoom-in; position:relative;}
+  .lb-item::after{
+    content:"Ver detalle";
+    position:absolute;
+    inset:0;
+    background:rgba(51,57,47,0.0);
+    color:transparent;
+    display:flex; align-items:flex-end;
+    padding:14px;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.02em;
+    transition:all .25s;
+  }
+  .lb-item:hover::after{
+    background:linear-gradient(to top, rgba(51,57,47,0.55), transparent 55%);
+    color:var(--cream);
+  }
+  .lightbox-overlay{
+    position:fixed; inset:0;
+    background:rgba(33,37,28,0.92);
+    z-index:1000;
+    display:none;
+    align-items:center; justify-content:center;
+    padding:40px 24px;
+  }
+  .lightbox-overlay.open{display:flex;}
+  .lightbox-box{
+    max-width:920px;
+    width:100%;
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    background:var(--cream);
+    border-radius:20px;
+    overflow:hidden;
+    max-height:86vh;
+  }
+  .lightbox-box img{width:100%; height:100%; object-fit:cover; max-height:86vh;}
+  .lightbox-text{padding:36px; display:flex; flex-direction:column; justify-content:center;}
+  .lightbox-text p{color:var(--ink-soft); font-size:0.98rem; line-height:1.6;}
+  .lightbox-close{
+    position:absolute; top:28px; right:32px;
+    width:42px; height:42px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.12);
+    color:var(--cream);
+    border:none;
+    font-size:1.3rem;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .lightbox-close:hover{background:rgba(255,255,255,0.22);}
+  @media(max-width:700px){
+    .lightbox-box{grid-template-columns:1fr; max-height:92vh; overflow-y:auto;}
+    .lightbox-box img{max-height:50vh;}
+    .sessions-grid{grid-template-columns:1fr 1fr;}
+  }
+
+  /* Placeholder card (sin usar actualmente) */
+  .placeholder-card{
+    background:var(--white);
+    border-radius:18px;
+    padding:30px;
+    box-shadow:var(--shadow);
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:30px;
+    align-items:center;
+  }
+  .placeholder-visual{
+    aspect-ratio:4/3;
+    border-radius:14px;
+    background:linear-gradient(135deg, var(--blue), var(--sage));
+    display:flex; align-items:center; justify-content:center;
+    color:var(--white);
+    font-family:'Fraunces',serif;
+    font-size:1.1rem;
+    text-align:center;
+    padding:20px;
+    position:relative;
+    overflow:hidden;
+  }
+  .placeholder-visual::after{
+    content:"";
+  }
+  .tag-soon{
+    display:inline-block;
+    background:var(--butter);
+    color:var(--ink);
+    font-size:0.75rem;
+    font-weight:800;
+    padding:5px 12px;
+    border-radius:20px;
+    margin-bottom:14px;
+    letter-spacing:0.03em;
+  }
+
+  /* ---------- Metodologia ---------- */
+  .method{padding:90px 0;}
+  .method-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+    margin-top:50px;
+  }
+  .method-card{
+    background:var(--white);
+    border-radius:18px;
+    padding:32px 26px;
+    box-shadow:var(--shadow);
+    text-align:left;
+    border-top:3px solid var(--coral-deep);
+  }
+  .method-card h4{font-size:1.15rem; margin-bottom:10px;}
+  .method-card p{color:var(--ink-soft); font-size:0.93rem;}
+
+  .quote-block{
+    margin-top:60px;
+    text-align:center;
+    max-width:760px;
+    margin-left:auto; margin-right:auto;
+  }
+  .quote-block p{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.5rem;
+    color:var(--ink);
+    line-height:1.45;
+  }
+  .quote-block span{
+    display:block;
+    margin-top:18px;
+    font-family:'Plus Jakarta Sans';
+    font-style:normal;
+    font-size:0.9rem;
+    color:var(--coral-deep);
+    font-weight:700;
+  }
+
+  /* ---------- Atención a la diversidad ---------- */
+  .diversity{padding:90px 0; background:var(--cream-deep);}
+  .diversity-block{margin-bottom:64px;}
+  .diversity-block:last-child{margin-bottom:0;}
+  .diversity-block h3{font-size:1.5rem; margin-bottom:12px;}
+  .diversity-block .desc{color:var(--ink-soft); max-width:680px; margin-bottom:26px; font-size:0.98rem;}
+
+  .carousel{
+    position:relative;
+    max-width:760px;
+    margin:0 auto;
+  }
+  .carousel-frame{
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    background:var(--white);
+    aspect-ratio:16/9;
+  }
+  .carousel-frame img{width:100%; height:100%; object-fit:contain; background:var(--white);}
+  .car-btn{
+    position:absolute;
+    top:50%; transform:translateY(-50%);
+    width:44px; height:44px;
+    border-radius:50%;
+    border:none;
+    background:var(--white);
+    color:var(--ink);
+    font-size:1.5rem;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s;
+  }
+  .car-btn:hover{background:var(--coral); color:var(--white);}
+  .car-btn.prev{left:-20px;}
+  .car-btn.next{right:-20px;}
+  .car-counter{
+    text-align:center;
+    margin-top:16px;
+    font-size:0.85rem;
+    font-weight:700;
+    color:var(--ink-soft);
+  }
+  .car-counter span{color:var(--coral-deep);}
+
+  .infografia-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+  }
+  .infografia-row{
+    background:var(--white);
+    border-radius:20px;
+    padding:26px;
+    box-shadow:var(--shadow);
+    text-align:center;
+  }
+  .infografia-text .tag-soon{
+    display:inline-block;
+    margin-bottom:12px;
+    background:var(--sage);
+    color:white;
+  }
+  .infografia-row:nth-child(even) .infografia-text .tag-soon{
+    background:var(--coral);
+  }
+  .infografia-text h5{font-size:1.15rem; margin-bottom:8px; font-family:'Fraunces',serif; font-weight:600;}
+  .infografia-text p{color:var(--ink-soft); font-size:0.9rem; line-height:1.6; max-width:420px; margin:0 auto 20px;}
+  .infografia-card{
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.10);
+    max-width:340px;
+    margin:0 auto;
+  }
+  .infografia-card img{width:100%; display:block;}
+
+  @media(max-width:700px){
+    .car-btn.prev{left:6px;}
+    .car-btn.next{right:6px;}
+    .infografia-grid{grid-template-columns:1fr;}
+  }
+
+  .hover-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:16px;
+    margin-bottom:10px;
+  }
+  .flip-card{
+    aspect-ratio:1/1;
+    perspective:1200px;
+  }
+  .flip-card-inner{
+    position:relative;
+    width:100%; height:100%;
+    text-align:center;
+    transition:transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+    transform-style:preserve-3d;
+    border-radius:16px;
+    box-shadow:var(--shadow);
+  }
+  .flip-card:hover .flip-card-inner{transform:rotateY(180deg);}
+  .flip-card-front, .flip-card-back{
+    position:absolute;
+    inset:0;
+    width:100%; height:100%;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .flip-card-front img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .flip-card-front .flip-num{
+    position:absolute;
+    top:12px; left:12px;
+    width:26px; height:26px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.9);
+    color:var(--ink);
+    font-size:0.8rem;
+    font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .flip-card-back{
+    background:var(--sage);
+    color:white;
+    transform:rotateY(180deg);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:16px;
+  }
+  .flip-card:nth-child(even) .flip-card-back{background:var(--coral-deep);}
+  .flip-card-back strong{font-size:0.92rem; margin-bottom:6px;}
+  .flip-card-back p{font-size:0.78rem; line-height:1.4; margin:0; opacity:0.95;}
+
+  /* ---------- Polaroid duo (estilo simple, sin flip ni lightbox) ---------- */
+  .polaroid-duo{
+    display:flex;
+    gap:36px;
+    justify-content:center;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    margin:36px 0 8px;
+  }
+  .polaroid{
+    background:var(--white);
+    padding:14px 14px 20px;
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    width:280px;
+    transform:rotate(-2.5deg);
+  }
+  .polaroid:nth-child(2){transform:rotate(2deg);}
+  .polaroid:nth-child(3){transform:rotate(-1deg);}
+  .polaroid img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+    border-radius:8px;
+    display:block;
+  }
+  .polaroid-note{
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    font-size:1.25rem;
+    color:var(--ink);
+    text-align:center;
+    margin-top:12px;
+  }
+  .polaroid-note span{
+    display:block;
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight:500;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    margin-top:2px;
+  }
+  @media(max-width:640px){
+    .polaroid{width:100%; max-width:320px; transform:rotate(0deg) !important;}
+  }
+
+  /* ---------- Flow duo (dos tarjetas conectadas por una flecha, estilo propio) ---------- */
+  .flow-duo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    margin:36px 0 8px;
+    flex-wrap:wrap;
+  }
+  .flow-card{
+    position:relative;
+    width:300px;
+    max-width:100%;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    background:var(--white);
+  }
+  .flow-card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    display:block;
+  }
+  .flow-tag{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:var(--ink);
+    color:white;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    padding:5px 12px;
+    border-radius:20px;
+  }
+  .flow-card:nth-child(1) .flow-tag{background:var(--coral-deep);}
+  .flow-card:nth-child(3) .flow-tag{background:var(--sage);}
+  .flow-caption{
+    padding:12px 16px 16px;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    line-height:1.45;
+  }
+  .flow-arrow{
+    font-size:1.8rem;
+    color:var(--ink-soft);
+    flex-shrink:0;
+  }
+  @media(max-width:760px){
+    .flow-arrow{transform:rotate(90deg);}
+  }
+  @media(max-width:1100px){
+    .hover-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  @media(max-width:900px){
+    .hover-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* ---------- Contacto ---------- */
+  .contact{
+    background:var(--ink);
+    color:var(--cream);
+    padding:90px 0;
+    border-radius:36px 36px 0 0;
+    margin-top:30px;
+  }
+  .contact .section-head p, .contact .section-head h2{color:var(--cream);}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+  }
+  .contact-info .row{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:22px;
+    font-size:0.98rem;
+    padding-bottom:18px;
+    border-bottom:1px solid rgba(251,247,239,0.12);
+  }
+  .contact-info .ic-label{
+    width:90px; flex-shrink:0;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:rgba(251,247,239,0.5);
+    font-weight:700;
+  }
+  .contact-info .row a{font-weight:600;}
+  .contact-info .row a:hover{color:var(--coral);}
+
+  form{display:flex; flex-direction:column; gap:14px;}
+  form input, form textarea{
+    width:100%;
+    padding:14px 18px;
+    border-radius:12px;
+    border:none;
+    background:rgba(255,255,255,0.08);
+    color:var(--cream);
+    font-family:inherit;
+    font-size:0.95rem;
+  }
+  form input::placeholder, form textarea::placeholder{color:rgba(251,247,239,0.5);}
+  form textarea{resize:vertical; min-height:110px;}
+  form button{
+    align-self:flex-start;
+    background:var(--coral-deep);
+    color:var(--white);
+    border:none;
+    padding:14px 30px;
+    border-radius:30px;
+    font-weight:700;
+    font-size:0.95rem;
+    cursor:pointer;
+    transition:transform .2s;
+  }
+  form button:hover{transform:translateY(-2px);}
+
+  footer{
+    background:var(--ink);
+    color:rgba(251,247,239,0.55);
+    text-align:center;
+    padding:26px 0 34px;
+    font-size:0.82rem;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:920px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+    .hero .container, .about-grid, .gallery-feature, .video-wrap, .placeholder-card, .contact-grid{
+      grid-template-columns:1fr;
+    }
+    .hero-visual{order:-1;}
+    .mini-grid{grid-template-columns:repeat(2,1fr);}
+    .method-grid{grid-template-columns:1fr;}
+    .obj-list{grid-template-columns:1fr;}
+    .contact{border-radius:24px 24px 0 0;}
+    .sessions-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Daniela <span>Martín Osuna</span></div>
+    <div class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#diversidad">Diversidad</a>
+      <a href="#metodologia">Metodología</a>
+      <a href="#contacto" class="nav-cta">Contacto</a>
+    </div>
+    <button class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </nav>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-copy">
+      <h1>Maestra de Educación Infantil, <em>creadora</em> de experiencias que enseñan jugando.</h1>
+      <p class="lead">Maestra de Educación Infantil por la Universidad de Córdoba, cursando actualmente el Máster en Neuropedagogía, Creatividad y Gestión de la Capacidad y el Talento. Apasionada por la innovación educativa, la robótica y el pensamiento computacional desde edades tempranas — siempre desde el juego, la narrativa y la inclusión.</p>
+      <div class="btn-row">
+        <a href="#proyectos" class="btn btn-primary">Ver mis proyectos →</a>
+        <a href="#contacto" class="btn btn-outline">Hablemos</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="frame"><img src="img/perfil.jpeg" alt="Daniela Martín Osuna, maestra de Educación Infantil"></div>
+      <div class="badge" id="hero-badge">
+        <div class="dot" id="hero-badge-icon">🤖</div>
+        <div class="badge-text" id="hero-badge-text">
+          <strong>El granjero Albert</strong>
+          <span>Pensamiento computacional · 5 años</span>
+        </div>
+      </div>
+      <div class="badge-dots" id="hero-badge-dots">
+        <span class="active"></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="path-divider">
+  <div class="dot"></div><div class="stone"></div><div class="dot"></div><div class="stone"></div><div class="dot"></div>
+</div>
+
+<!-- ===================== SOBRE MI ===================== -->
+<section class="about" id="sobre-mi">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:50px;">
+      <span class="felt-tag">Sobre mí</span>
+      <h2>Del aula a la innovación, sin perder de vista a cada niño</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Soy Daniela, maestra en formación con experiencia directa en aulas de 3 y 5 años. Antigua alumna de Santísima Trinidad Trinitarios, conservo un gran apego a sus valores y guardo la ilusión de algún día volver a las aulas que me formaron.</p>
+        <p>Me mueve la innovación educativa: llevo la robótica, el pensamiento computacional y el aprendizaje basado en el juego al centro de mis propuestas, siempre cuidando que cada niño y niña —tenga el ritmo que tenga— encuentre su manera de participar.</p>
+        <p>Cuento con el DECA (Declaración Eclesiástica de Competencia Académica), obtenido en 2025, y he finalizado el Grado en Educación Infantil en la Universidad de Córdoba en 2026. Actualmente curso el Máster Universitario en Neuropedagogía, Creatividad y Gestión de la Capacidad y el Talento. Aplicaciones Educativas, en modalidad semipresencial en la UCO.</p>
+        <p class="pill-group-label">Competencias</p>
+        <div class="pill-row">
+          <span class="pill">Robótica educativa</span>
+          <span class="pill">🧩 Pensamiento computacional</span>
+          <span class="pill">🎭 Aprendizaje por narrativa</span>
+          <span class="pill">🗣️ Comunicación con familias</span>
+          <span class="pill">🧠 Atención a la diversidad</span>
+        </div>
+        <p class="pill-group-label">Formación</p>
+        <div class="formacion-list">
+          <div class="formacion-item">
+            <strong>Máster en Neuropedagogía, Creatividad y Gestión del Talento</strong>
+            <span>UCO · Cursando</span>
+          </div>
+          <div class="formacion-item">
+            <strong>Grado en Educación Infantil</strong>
+            <span>UCO · Finalizado 2026</span>
+          </div>
+          <div class="formacion-item">
+            <strong>DECA</strong>
+            <span>2025</span>
+          </div>
+          <div class="formacion-item">
+            <strong>Inglés B1</strong>
+            <span>Nivel acreditado</span>
+          </div>
+          <div class="formacion-item">
+            <strong>Bachillerato C.C.S.S.</strong>
+            <span>I.E.S. Fidiana · 2022</span>
+          </div>
+          <div class="formacion-item">
+            <strong>Graduado ESO</strong>
+            <span>Sma. Trinidad Trinitarios · 2020</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-meta">2 cursos consecutivos</div>
+          <h4>Maestra de apoyo · Colegio Séneca</h4>
+          <p>Córdoba. Atención y desarrollo de actividades con el grupo de 5 años, y apoyo educativo en el aula de 3 años.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-meta">1 curso</div>
+          <h4>Maestra de apoyo · CEIP Juan de Mena</h4>
+          <p>Córdoba. Acompañamiento y labor docente con niños y niñas de 3 años.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-meta">Córdoba</div>
+          <h4>Clases particulares</h4>
+          <p>Refuerzo educativo y apoyo personalizado a alumnas de 5 y 9 años.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-meta">2024 – 2025</div>
+          <h4>Prácticas curriculares</h4>
+          <p>Varios centros de la provincia de Córdoba, en Educación Infantil.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-meta">2025</div>
+          <h4>Animadora infantil de eventos</h4>
+          <p>Organización de juegos lúdicos y dinámicas de grupo. Una experiencia que refuerza mi creatividad a la hora de diseñar actividades y mi soltura para gestionar a grupos grandes de niños y niñas.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-meta">2022 – 2025</div>
+          <h4>Atención al público y hostelería</h4>
+          <p>Campañas promocionales y trato directo con el cliente (Tres Hileras Bakery, Hermanos Fernández, Chimeney Corduba). Una base sólida de comunicación con adultos que aplico de cara a la relación y las tutorías con las familias.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="path-divider">
+  <div class="dot"></div><div class="stone"></div><div class="dot"></div><div class="stone"></div><div class="dot"></div>
+</div>
+
+<!-- ===================== PROYECTOS ===================== -->
+<section class="projects" id="proyectos">
+
+  <div class="container" style="padding-top:60px;">
+    <div class="section-head">
+      <span class="felt-tag">Proyectos</span>
+      <h2>Donde la teoría se convierte en juego</h2>
+      <p>Cuatro propuestas propias —robótica educativa, reciclaje y sostenibilidad, patrimonio cultural y un juego digital— diseñadas y elaboradas para el alumnado de Infantil.</p>
+    </div>
+  </div>
+
+  <!-- ---- PROYECTO 1: EL GRANJERO ALBERT ---- -->
+  <div class="project-block">
+    <div class="container">
+      <div class="project-top">
+        <span class="num">Proyecto de Innovación · TFG</span>
+      </div>
+      <h3>El granjero Albert</h3>
+      <p class="desc">Una situación de aprendizaje para niños y niñas de 5 años que inicia el pensamiento computacional a través de la narrativa. El robot educativo Albert se convierte en "el granjero Albert", protagonista de un cuento original, y guía cinco sesiones de programación, lateralidad y trabajo cooperativo sobre un tapete tridimensional de fieltro hecho a mano.</p>
+
+      <div class="gallery-feature">
+        <div class="main-img lb-item" data-caption="El tapete sensorial tridimensional, confeccionado a mano en fieltro con texturas y relieves. Recrea cada escenario de la granja —casa, huerto, gallinero, estanque, establo— y sirve de andamiaje cognitivo: el alumnado proyecta mentalmente el recorrido antes de programar a Albert sobre él.">
+          <img src="img/tapete-granja.jpeg" alt="Tapete sensorial tridimensional de la granja, elaborado en fieltro">
+        </div>
+        <div class="side-stack">
+          <div class="ph lb-item" data-caption="Cartel del cuento original 'El granjero Albert', escrito, ilustrado y encuadernado a mano. Es el hilo narrativo que da sentido a cada sesión: cada orden que el alumnado programa en el robot responde a un momento concreto de esta historia.">
+            <img src="img/cuento-portada.jpeg" alt="Cartel del cuento original El granjero Albert">
+          </div>
+          <div class="ph lb-item" data-caption="Albert caracterizado como 'el granjero Albert', con su sombrero de paja y su peto vaquero. Esta personificación es la que convierte al robot en un personaje cercano y predecible, clave para la motivación de toda la clase y especialmente para el alumnado con TEA.">
+            <img src="img/albert-granjero-hero.jpg" alt="Robot Albert caracterizado como el granjero">
+          </div>
+        </div>
+      </div>
+      <p class="caption">El tapete tridimensional, el cuento original "El granjero Albert" y el propio Albert caracterizado de granjero — todo elaborado a mano para este proyecto.</p>
+
+      <div class="mini-grid">
+        <div class="mini-card lb-item" data-caption="Set de tarjetas de codificación visual diseñadas en Canva: avanzar, retroceder, girar, empezar y terminar programa. El alumnado las ordena en el suelo antes de introducir la secuencia en el robot, anticipando así el recorrido.">
+          <img src="img/tarjetas-codigo.jpeg" alt="Tarjetas de codificación visual: avanzar, retroceder, empezar">
+          <div class="label">Tarjetas de codificación</div>
+        </div>
+        <div class="mini-card lb-item" data-caption="Robots elaborados por el propio alumnado en la Sesión 5, 'Mi propio robot', con rollos de cartón reciclados, tapones y flechas de colores que representan las órdenes de movimiento aprendidas: avanzar, retroceder, girar. Cada niño decide qué secuencia pegarle a su robot.">
+          <img src="img/prototipo-robots-nuevo.jpeg" alt="Robots hechos con materiales reciclados y flechas de colores, elaborados por el alumnado">
+          <div class="label">"Mi propio robot" (Sesión 5)</div>
+        </div>
+        <div class="mini-card lb-item" data-caption="Diploma de 'Experto en robótica', entregado al finalizar el proyecto como cierre de la narrativa y refuerzo positivo. Queda firmado por Albert y por cada alumno o alumna, y sirve también de vínculo con las familias.">
+          <img src="img/diploma.jpeg" alt="Diploma de Experto en Robótica entregado al alumnado">
+          <div class="label">Diploma de Experto en Robótica</div>
+        </div>
+        <div class="mini-card lb-item" data-caption="Mapa de la granja sin colorear, entregado al alumnado para que lo pinte tras escuchar el cuento: la casa, el huerto, el gallinero, la zona de barro, el establo y el estanque. Este mapa se convierte en su guía visual para programar a Albert.">
+          <img src="img/mapa-granja.jpeg" alt="Mapa de la granja sin colorear, con la casa, el huerto, el gallinero, el establo y el estanque">
+          <div class="label">Mapa de la granja</div>
+        </div>
+      </div>
+
+      <div class="sessions-block">
+        <h4 class="sessions-title">La secuencia didáctica, sesión a sesión</h4>
+        <div class="infografia-wrap">
+          <img src="img/secuencia-didactica-infografia.jpeg" alt="Infografía de la secuencia didáctica del proyecto El granjero Albert, sesiones 1 a 5">
+          <button class="hotspot" style="left:12.5%; top:46%;" onclick="openSession(1)" aria-label="Sesión 1"></button>
+          <button class="hotspot" style="left:27%; top:76%;" onclick="openSession(2)" aria-label="Sesión 2"></button>
+          <button class="hotspot" style="left:50%; top:42%;" onclick="openSession(3)" aria-label="Sesión 3"></button>
+          <button class="hotspot" style="left:67.5%; top:64%;" onclick="openSession(4)" aria-label="Sesión 4"></button>
+          <button class="hotspot" style="left:83.5%; top:27%;" onclick="openSession(5)" aria-label="Sesión 5"></button>
+        </div>
+        <p class="caption">Toca cada número para ver el detalle de la sesión.</p>
+      </div>
+
+      <div class="video-wrap">
+        <video controls preload="metadata" poster="img/cuento-portada.jpeg">
+          <source src="img/albert-video.mp4" type="video/mp4">
+          Tu navegador no soporta vídeo HTML5.
+        </video>
+        <div>
+          <span class="tag-soon" style="background:var(--sage); color:white;">Vídeo</span>
+          <h4>El cuento "El granjero Albert"</h4>
+          <p>Un vistazo al libro original, escrito, ilustrado y encuadernado a mano para articular las cinco sesiones del proyecto.</p>
+          <p>Cada página presenta un escenario de la granja —el huerto, el gallinero, el barro, el estanque— que después el alumnado recorre programando a Albert sobre el tapete.</p>
+        </div>
+      </div>
+
+      <div class="obj-list">
+        <div class="obj-item">
+          <strong>Pensamiento computacional</strong>
+          Secuenciación, anticipación y depuración de errores mediante tarjetas de programación.
+        </div>
+        <div class="obj-item">
+          <strong>Orientación espacial</strong>
+          Lateralidad y conceptos topológicos (delante/detrás, izquierda/derecha) vividos primero con el propio cuerpo.
+        </div>
+        <div class="obj-item">
+          <strong>Trabajo cooperativo</strong>
+          Cinco equipos con roles rotativos: arquitecto, programador, narrador y cuidador.
+        </div>
+        <div class="obj-item">
+          <strong>Diseño Universal para el Aprendizaje</strong>
+          Adaptado para alumnado con TEA y con retraso madurativo del lenguaje, ofreciendo un canal visual y predecible para demostrar su razonamiento lógico.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- PROYECTO 2: QURTUBA ---- -->
+  <div class="project-block">
+    <div class="container">
+      <div class="project-top">
+        <span class="num">Aprendizaje Basado en Proyectos · Educación Infantil</span>
+      </div>
+      <h3>Qurtuba: un viaje por la Córdoba andalusí</h3>
+      <p class="desc">Un proyecto de Aprendizaje Basado en Proyectos (ABP) diseñado junto a Raquel Copete, Lucía Luengo y Laura Márquez para acercar al alumnado de Infantil la Córdoba andalusí. A través de folletos ilustrados, una guía digital, un itinerario con gymkana por la ciudad y una exposición final, los niños y niñas descubren Medina Azahara, el zoco, los baños árabes y el patrimonio que aún perdura, guiados por Fátima, un personaje creado como hilo conductor de todo el recorrido.</p>
+
+      <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:24px;">
+        <a href="https://www.canva.com/design/DAG5KQM4swg/53jNzUmaLmFOgqNDFhyT1Q/view" target="_blank" rel="noopener">Guía de aprendizaje digital</a> ·
+        <a href="https://view.genially.com/6931cd776c159accb7d3b1d2/interactive-content-2" target="_blank" rel="noopener">Gymkana interactiva</a> ·
+        <a href="https://www.canva.com/design/DAG5thTu6qA/Fvy_sONI-_JCBe2ZgxLW7g/view" target="_blank" rel="noopener">Exposición final</a>
+      </p>
+
+      <div class="gallery-feature">
+        <div class="main-img lb-item" data-caption="Tríptico 'Viaje a través de la historia' sobre Medina Azahara, con mapa ilustrado, códigos QR y símbolos (llave, luna, corona, pórtico) que identifican cada zona del yacimiento: la Casa de Ya'far, la Mezquita Aljama, el Salón Rico y el Gran Pórtico Oriental.">
+          <img src="img/qurtuba-folleto-mapa.jpeg" alt="Tríptico ilustrado de Medina Azahara con mapa y códigos QR, sostenido en la mano">
+        </div>
+        <div class="side-stack">
+          <div class="ph lb-item" data-caption="Portada del tríptico 'Visita Medina Azahara con Fátima', el personaje guía creado para acompañar al alumnado durante todo el recorrido y presentar la información de forma cercana y sencilla.">
+            <img src="img/qurtuba-triptico.jpeg" alt="Tríptico Visita Medina Azahara con Fátima, personaje guía del proyecto">
+          </div>
+        </div>
+      </div>
+      <p class="caption">El folleto informativo sobre Medina Azahara, con Fátima como guía y símbolos propios para cada espacio del yacimiento: el Salón Rico (corona), el Gran Pórtico Oriental (pórtico), la Mezquita Aljama (luna) y la Casa de Ya'far (llave).</p>
+
+      <div class="sessions-block">
+        <h4 class="sessions-title">Cuatro talleres, un mismo recorrido por la historia</h4>
+        <div class="obj-list">
+          <div class="obj-item">
+            <strong>Folletos de Medina Azahara</strong>
+            Tríptico ilustrado con Fátima como personaje guía, mapa del yacimiento y códigos QR que enlazan símbolos visuales con cada espacio: Salón Rico, Gran Pórtico Oriental, Mezquita Aljama, Casa de Ya'far y museo.
+          </div>
+          <div class="obj-item">
+            <strong>Guía de aprendizaje digital (Canva)</strong>
+            Infografía sobre la vida cotidiana en Qurtuba: vestimenta, actividades comerciales, oficios, prácticas religiosas y patrimonio andalusí que aún perdura en la Córdoba actual.
+          </div>
+          <div class="obj-item">
+            <strong>Itinerario educativo y gymkana</strong>
+            Recorrido guiado por Google Maps con códigos QR sonoros por el Alcázar de los Reyes Cristianos, los Baños Árabes, el Zoco Municipal y el Patio de los Naranjos, seguido de una gymkana con adivinanzas, juegos de palabras y sopa de letras.
+          </div>
+          <div class="obj-item">
+            <strong>Exposición "Córdoba y sus 1001 noches"</strong>
+            Póster final que recorre Medina Azahara, el zoco y los baños árabes, cerrando el proyecto como espacio de encuentro con las familias.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ---- PROYECTO 3: EL BOSQUE DE LOS SUEÑOS ---- -->
+  <div class="project-block">
+    <div class="container">
+      <div class="project-top">
+        <span class="num">Recurso digital · Scratch</span>
+      </div>
+      <h3>El Bosque de los Sueños</h3>
+      <p class="desc">Un pequeño juego/historia creado en Scratch y protagonizado por Lumi, una luciérnaga que ha perdido su luz. Para recuperarla, Lumi viaja por distintas zonas de un bosque mágico donde viven animales que representan emociones positivas —la calma, la curiosidad, la amistad— y le proponen mini juegos sencillos: clasificar por colores, contar elementos o relacionar letras mayúsculas y minúsculas. Cada prueba superada devuelve a Lumi un poco de su brillo, hasta iluminar de nuevo todo el bosque.</p>
+
+      <div style="text-align:center; margin:28px 0;">
+        <a href="https://scratch.mit.edu/projects/1251578491" target="_blank" rel="noopener" class="btn btn-primary">🐱 Jugar en Scratch →</a>
+      </div>
+
+      <div class="hover-grid">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="flip-num">1</span>
+              <img src="img/luciernaga-inicio-triste.jpeg" alt="Pantalla de inicio del juego, con Lumi triste por haber perdido su luz y el botón JUGAR">
+            </div>
+            <div class="flip-card-back">
+              <strong>Inicio · Lumi ha perdido su luz</strong>
+              <p>Lumi aparece triste en el bosque oscuro. Al pulsar "Jugar", comienza la aventura para ayudarla a recuperar su brillo.</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="flip-num">2</span>
+              <img src="img/luciernaga-colores.png" alt="Mini juego de clasificación de flores por colores">
+            </div>
+            <div class="flip-card-back">
+              <strong>El Claro del Bosque</strong>
+              <p>Una mariposa pide a Lumi ayuda para clasificar flores de colores en su cesta correspondiente.</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="flip-num">3</span>
+              <img src="img/luciernaga-conteo.png" alt="Mini juego de conteo de peces y cangrejos en el lago">
+            </div>
+            <div class="flip-card-back">
+              <strong>El Lago Tranquilo</strong>
+              <p>Una rana pide contar los peces, los cangrejos y las ranas que hay en el agua.</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="flip-num">4</span>
+              <img src="img/luciernaga-vocales.png" alt="Mini juego de letras mayúsculas y minúsculas con el búho">
+            </div>
+            <div class="flip-card-back">
+              <strong>El Sendero del Bosque</strong>
+              <p>Un búho necesita agrupar las letras minúsculas con sus mayúsculas correspondientes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span class="flip-num">5</span>
+              <img src="img/luciernaga-intro-bosque.png" alt="Pantalla final del juego, con Lumi y todos los animales del bosque brillando de nuevo">
+            </div>
+            <div class="flip-card-back">
+              <strong>Final · El Corazón del Bosque</strong>
+              <p>Todos los personajes reaparecen y el bosque vuelve a brillar por completo: un cierre visual y narrativo que pone fin a la historia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="caption">Pasa el cursor sobre cada imagen: la tarjeta se girará para contarte qué ocurre en esa zona del bosque.</p>
+
+      <div class="sessions-block">
+        <h4 class="sessions-title">Un recorrido por el bosque, zona a zona</h4>
+        <div class="obj-list">
+          <div class="obj-item">
+            <strong>El Claro del Bosque</strong>
+            Una mariposa pide ayuda para ordenar los colores de unas flores. Al completarlo, Lumi recupera parte de su brillo.
+          </div>
+          <div class="obj-item">
+            <strong>El Lago Tranquilo</strong>
+            Una rana pide contar los peces, cangrejos y ranas del lago. Un conteo correcto hace brillar un poco más a Lumi.
+          </div>
+          <div class="obj-item">
+            <strong>El Sendero del Bosque</strong>
+            Un búho necesita agrupar las letras minúsculas con sus mayúsculas correspondientes. Al conseguirlo, Lumi casi recupera toda su luz.
+          </div>
+          <div class="obj-item">
+            <strong>El Corazón del Bosque</strong>
+            Todos los personajes reaparecen y el bosque vuelve a brillar por completo: un cierre visual y narrativo sin retos, que pone fin a la historia.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- PROYECTO 4: RECICLA Y PROGRAMA ---- -->
+  <div class="project-block">
+    <div class="container">
+      <div class="project-top">
+        <span class="num">Robótica educativa · Educación Ambiental</span>
+      </div>
+      <h3>Recicla y programa</h3>
+      <p class="desc">Un juego con Bee-Bot que une el pensamiento computacional con la educación ambiental: el alumnado diseña el recorrido, programa a Bee-Bot hasta el residuo, lo "carga" en su remolque y vuelve a programarlo hasta el contenedor correcto.</p>
+
+      <div class="polaroid-duo">
+        <div class="polaroid">
+          <img src="img/reciclaje-tapete-base.jpeg" alt="Vista aérea del tablero de ciudad diseñado en Canva, cuadriculado y en blanco">
+          <div class="polaroid-note">El tablero
+            <span>Diseñado en Canva, sin posiciones fijas</span>
+          </div>
+        </div>
+        <div class="polaroid">
+          <img src="img/reciclaje-beebot-caja.png" alt="Bee-Bot junto a una caja de cartón que hace de remolque">
+          <div class="polaroid-note">Bee-Bot y su remolque
+            <span>Recoge el residuo y lo transporta</span>
+          </div>
+        </div>
+        <div class="polaroid">
+          <img src="img/reciclaje-contenedores-amarillo-azul.jpeg" alt="Ilustraciones del contenedor amarillo de envases y el contenedor azul de papel y cartón">
+          <div class="polaroid-note">Cuatro contenedores
+            <span>Amarillo, azul, verde y marrón</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="obj-list" style="margin-top:36px;">
+        <div class="obj-item">
+          <strong>Doble programación</strong>
+          Primero hasta el residuo, después hasta el contenedor correcto.
+        </div>
+        <div class="obj-item">
+          <strong>Rejugabilidad</strong>
+          Cada partida es un recorrido nuevo, con más o menos dificultad.
+        </div>
+        <div class="obj-item">
+          <strong>Educación ambiental</strong>
+          Clasificar envases, papel, vidrio y orgánico jugando.
+        </div>
+        <div class="obj-item">
+          <strong>Trabajo en equipo</strong>
+          Diseñar, programar y depurar la secuencia entre todo el grupo.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="path-divider">
+  <div class="dot"></div><div class="stone"></div><div class="dot"></div><div class="stone"></div><div class="dot"></div>
+</div>
+
+<!-- ===================== ATENCIÓN A LA DIVERSIDAD ===================== -->
+<section class="diversity" id="diversidad">
+  <div class="container">
+    <div class="section-head">
+      <span class="felt-tag">Atención a la diversidad</span>
+      <h2>Proyectos pensados para que nadie se quede fuera</h2>
+      <p>Dos presentaciones y dos infografías elaboradas durante mi formación, centradas en el diseño de respuestas educativas inclusivas.</p>
+    </div>
+
+    <div class="diversity-block">
+      <h3>Discapacidad auditiva · La Gastroescuela</h3>
+      <p class="desc">Estudio de caso de Ana, una niña de 5 años con discapacidad auditiva, y el diseño de "La Gastroescuela", una situación de aprendizaje de tres sesiones adaptada bajo los principios del DUA para trabajar las funciones del lenguaje de forma lúdica e inclusiva.</p>
+      <div class="carousel" id="carousel-auditiva">
+        <div class="carousel-frame">
+          <img id="img-auditiva" src="img/slides-auditiva/01.jpg" alt="Diapositiva de la presentación Discapacidad auditiva">
+        </div>
+        <button class="car-btn prev" onclick="changeSlide('auditiva', -1)" aria-label="Diapositiva anterior">‹</button>
+        <button class="car-btn next" onclick="changeSlide('auditiva', 1)" aria-label="Diapositiva siguiente">›</button>
+        <div class="car-counter"><span id="count-auditiva">1</span> / 12</div>
+      </div>
+    </div>
+
+    <div class="diversity-block">
+      <h3>Cuento adaptado en Lengua de Signos · "¡Todos juntos!"</h3>
+      <p class="desc">Adaptación con apoyo de signos en LSE del cuento "¡Todos juntos!" de Daniela Kulot, para acercar la diversidad —física, cultural, emocional— al alumnado de Infantil de forma visual y accesible para todos, incluido el alumnado con discapacidad auditiva.</p>
+      <div class="carousel" id="carousel-lse">
+        <div class="carousel-frame">
+          <img id="img-lse" src="img/slides-lse/01.jpg" alt="Diapositiva del cuento adaptado en LSE Todos juntos">
+        </div>
+        <button class="car-btn prev" onclick="changeSlide('lse', -1)" aria-label="Diapositiva anterior">‹</button>
+        <button class="car-btn next" onclick="changeSlide('lse', 1)" aria-label="Diapositiva siguiente">›</button>
+        <div class="car-counter"><span id="count-lse">1</span> / 21</div>
+      </div>
+    </div>
+
+    <div class="diversity-block">
+      <h3>Infografías de apoyo</h3>
+      <p class="desc">Material de consulta rápida sobre necesidades específicas de comunicación y lenguaje, elaborado para el aula y para acompañar a las familias.</p>
+      <div class="infografia-grid">
+        <div class="infografia-row">
+          <div class="infografia-text">
+            <span class="tag-soon">Comunicación y lenguaje</span>
+            <h5>Trastorno Específico del Lenguaje (TEL)</h5>
+            <p>Qué es, sus síntomas más comunes y a qué profesional acudir (logopeda). Recoge pautas generales para el aula —frases sencillas, gestos naturales, trabajo en grupo— además de aplicaciones y recursos materiales recomendados para estimular el vocabulario.</p>
+          </div>
+          <div class="infografia-card">
+            <img src="img/infografia-tel.jpeg" alt="Infografía sobre el Trastorno Específico del Lenguaje TEL">
+          </div>
+        </div>
+        <div class="infografia-row">
+          <div class="infografia-text">
+            <span class="tag-soon">Desarrollo del lenguaje</span>
+            <h5>Desarrollo comunicativo y lingüístico</h5>
+            <p>Resume las funciones del lenguaje, el proceso de adquisición antes y después de la primera palabra, y los cuatro componentes del desarrollo lingüístico: fonológico, semántico, morfosintáctico y pragmático, junto a las competencias del lenguaje escrito.</p>
+          </div>
+          <div class="infografia-card">
+            <img src="img/infografia-desarrollo-comunicativo.jpeg" alt="Infografía sobre desarrollo comunicativo y lingüístico">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="path-divider">
+  <div class="dot"></div><div class="stone"></div><div class="dot"></div><div class="stone"></div><div class="dot"></div>
+</div>
+
+<!-- ===================== METODOLOGIA ===================== -->
+<section class="method" id="metodologia">
+  <div class="container">
+    <div class="section-head">
+      <span class="felt-tag">Filosofía</span>
+      <h2>Mi forma de entender la educación</h2>
+      <p>Tres ideas que guían cada propuesta que llevo al aula.</p>
+    </div>
+    <div class="method-grid">
+      <div class="method-card">
+        <h4>El juego como motor</h4>
+        <p>Cada aprendizaje pasa primero por el cuerpo y el juego. La narrativa convierte instrucciones abstractas en acciones con sentido para el niño.</p>
+      </div>
+      <div class="method-card">
+        <h4>Tecnología con propósito</h4>
+        <p>Introduzco la robótica y lo digital de forma responsable y activa, transformando al alumnado de consumidor pasivo a creador de sus propias soluciones.</p>
+      </div>
+      <div class="method-card">
+        <h4>Educación inclusiva</h4>
+        <p>Diseño bajo los principios del DUA, para que cada niño —incluido el alumnado con NEAE— encuentre su propio canal para participar y demostrar lo que sabe.</p>
+      </div>
+    </div>
+    <div class="quote-block">
+      <p>"La mejor innovación no es aquella que cuenta con la tecnología más avanzada, sino la que la utiliza como medio para construir un aula más inclusiva, equitativa y cooperativa."</p>
+      <span>— De mi Trabajo de Fin de Grado, "El granjero Albert"</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACTO ===================== -->
+<section class="contact" id="contacto">
+  <div class="container">
+    <div class="section-head">
+      <span class="felt-tag" style="color:var(--coral-deep);">Contacto</span>
+      <h2>Hablemos de tu próxima aula</h2>
+      <p style="opacity:0.75;">Estoy disponible para incorporarme a un equipo docente. Escríbeme o déjame un mensaje aquí mismo.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="row">
+          <div class="ic-label">Ubicación</div>
+          <span>Córdoba (14014)</span>
+        </div>
+        <div class="row">
+          <div class="ic-label">Teléfono</div>
+          <a href="tel:656727225">656 727 225</a>
+        </div>
+        <div class="row">
+          <div class="ic-label">Email</div>
+          <a href="mailto:dmartinosuna@gmail.com">dmartinosuna@gmail.com</a>
+        </div>
+        <div class="row">
+          <div class="ic-label">Formación</div>
+          <span>Máster en Neuropedagogía · UCO</span>
+        </div>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('¡Gracias! Tu mensaje quedaría enviado a dmartinosuna@gmail.com (formulario de demostración).');">
+        <input type="text" placeholder="Tu nombre" required>
+        <input type="email" placeholder="Tu email" required>
+        <textarea placeholder="Cuéntame en qué proyecto o vacante estás pensando..." required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Daniela Martín Osuna · Educación Infantil · Córdoba · © 2026
+</footer>
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <div class="lightbox-box">
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-text">
+      <p id="lightbox-caption"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbCaption = document.getElementById('lightbox-caption');
+
+  document.querySelectorAll('.lb-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lbCaption.textContent = item.dataset.caption || '';
+      lb.classList.add('open');
+    });
+  });
+
+  function closeLightbox(){ lb.classList.remove('open'); }
+  lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
+
+  const sessionData = {
+    1: { title: 'Sesión 1 · Conocemos a Albert', text: 'En la asamblea, una caja sorpresa esconde al robot. Tras activar su modo "mascota", el grupo experimenta libremente con sus sensores de proximidad y cierra la sesión comparando las reacciones de Albert con las suyas propias.' },
+    2: { title: 'Sesión 2 · ¡Somos robots!', text: 'En el aula de psicomotricidad, el alumnado interioriza con su propio cuerpo el lenguaje de las tarjetas —avanzar, girar, retroceder— antes de trasladar esas mismas órdenes al robot real.' },
+    3: { title: 'Sesión 3 · El mapa de la granja', text: 'De forma individual, cada niño completa y colorea su propio mapa de la granja tras escuchar el cuento. Ese mapa será su guía visual para programar a Albert en la siguiente sesión.' },
+    4: { title: 'Sesión 4 · Vivimos el cuento', text: 'El núcleo del proyecto: cinco equipos —Hormiguitas, Pollitos, Cerditos, Ovejitas y Pajaritos— programan por turnos a Albert sobre el tapete, con roles rotativos de arquitecto, programador, narrador y cuidador.' },
+    5: { title: 'Sesión 5 · Mi propio robot', text: 'Con materiales reciclados aportados por las familias, cada alumno construye su propia réplica de Albert y verbaliza la secuencia que ha elegido pegarle. La sesión cierra con la entrega del diploma de "Experto en robótica".' }
+  };
+
+  function openSession(n){
+    const s = sessionData[n];
+    lbImg.src = 'img/secuencia-didactica-infografia.jpeg';
+    lbImg.alt = s.title;
+    lbCaption.innerHTML = '<strong style="display:block; font-family:\'Fraunces\',serif; font-size:1.1rem; margin-bottom:8px; color:var(--ink);">' + s.title + '</strong>' + s.text;
+    lb.classList.add('open');
+  }
+
+  const decks = {
+    auditiva: { total: 12, current: 1, folder: 'slides-auditiva' },
+    lse: { total: 21, current: 1, folder: 'slides-lse' }
+  };
+
+  function changeSlide(key, dir){
+    const deck = decks[key];
+    deck.current += dir;
+    if(deck.current < 1) deck.current = deck.total;
+    if(deck.current > deck.total) deck.current = 1;
+    const num = String(deck.current).padStart(2, '0');
+    document.getElementById('img-' + key).src = 'img/' + deck.folder + '/' + num + '.jpg';
+    document.getElementById('count-' + key).textContent = deck.current;
+  }
+  const badgeData = [
+    { icon:'🤖', title:'El granjero Albert', text:'Pensamiento computacional · 5 años' },
+    { icon:'♻️', title:'Recicla y programa', text:'Robótica con Bee-Bot · Educación ambiental' },
+    { icon:'🌙', title:'Qurtuba', text:'ABP sobre la Córdoba andalusí · Infantil' },
+    { icon:'✨', title:'El Bosque de los Sueños', text:'Juego digital en Scratch · Infantil' },
+    { icon:'🧩', title:'Atención a la diversidad', text:'Recursos inclusivos para el aula' }
+  ];
+  let badgeIndex = 0;
+  const badgeIconEl = document.getElementById('hero-badge-icon');
+  const badgeTextEl = document.getElementById('hero-badge-text');
+  const badgeDotsEl = document.getElementById('hero-badge-dots');
+  if(badgeTextEl){
+    setInterval(() => {
+      badgeTextEl.classList.add('fading');
+      setTimeout(() => {
+        badgeIndex = (badgeIndex + 1) % badgeData.length;
+        const d = badgeData[badgeIndex];
+        badgeIconEl.textContent = d.icon;
+        badgeTextEl.innerHTML = `<strong>${d.title}</strong><span>${d.text}</span>`;
+        badgeDotsEl.querySelectorAll('span').forEach((dot, i) => dot.classList.toggle('active', i === badgeIndex));
+        badgeTextEl.classList.remove('fading');
+      }, 350);
+    }, 3200);
+  }
+</script>
+
+</body>
+</html>
