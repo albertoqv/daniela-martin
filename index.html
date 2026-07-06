@@ -1530,8 +1530,11 @@
 
   function openSession(n){
     const s = sessionData[n];
-    lbCaption.innerHTML = '<strong style="display:block; font-family:\'Fraunces\',serif; font-size:1.1rem; margin-bottom:8px; color:var(--ink);">' + s.title + '</strong>' + s.text;
-    lb.classList.add('open');
+ // Ocultamos la etiqueta de la imagen para que desaparezca el recuadro vacío
+  lbImg.style.display = 'none'; 
+  
+  lbCaption.innerHTML = '<strong style="display:block; font-family:\'Fraunces\',serif; font-size:1.1rem; margin-bottom:8px; color:var(--ink);">' + s.title + '</strong>' + s.text;
+  lb.classList.add('open');
   }
 
   const decks = {
