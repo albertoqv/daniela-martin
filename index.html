@@ -2,10 +2,69 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Daniela Martín Osuna · Educación Infantil</title>
+
+<meta name="description" content="Portfolio de Daniela Martín Osuna, maestra de Educación Infantil. Proyectos de robótica educativa, pensamiento computacional, ABP y atención a la diversidad.">
+<meta name="author" content="Daniela Martín Osuna">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://danielamartinosuna.com/">
+
+<!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://danielamartinosuna.com/">
+<meta property="og:title" content="Daniela Martín Osuna · Educación Infantil">
+<meta property="og:description" content="Maestra de Educación Infantil. Proyectos de robótica educativa, pensamiento computacional, ABP y atención a la diversidad.">
+<meta property="og:image" content="https://danielamartinosuna.com/img/compartir-enlace-daniela.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Daniela Martín Osuna">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Daniela Martín Osuna · Educación Infantil">
+<meta name="twitter:description" content="Maestra de Educación Infantil. Proyectos de robótica educativa, pensamiento computacional, ABP y atención a la diversidad.">
+<meta name="twitter:image" content="https://danielamartinosuna.com/img/compartir-enlace-daniela.png">
+
+<!-- Favicons / iconos -->
+<link rel="icon" type="image/png" href="img/favicon-daniela.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-daniela.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-daniela.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicon-daniela.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#FBF7EF">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="D. Martín Osuna">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- Datos estructurados para buscadores (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Daniela Martín Osuna",
+  "jobTitle": "Maestra de Educación Infantil",
+  "email": "mailto:dmartinosuna@gmail.com",
+  "telephone": "+34656727225",
+  "url": "https://danielamartinosuna.com/",
+  "image": "https://danielamartinosuna.com/img/perfil.jpeg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Córdoba",
+    "postalCode": "14014",
+    "addressCountry": "ES"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universidad de Córdoba"
+  }
+}
+</script>
+
 <style>
   :root{
     --cream:#FBF7EF;
@@ -672,7 +731,7 @@
     border-radius:16px;
     box-shadow:var(--shadow);
   }
-  .flip-card:hover .flip-card-inner{transform:rotateY(180deg);}
+  .flip-card:hover .flip-card-inner, .flip-card.is-flipped .flip-card-inner{transform:rotateY(180deg);}
   .flip-card-front, .flip-card-back{
     position:absolute;
     inset:0;
@@ -859,7 +918,7 @@
     background:rgba(255,255,255,0.08);
     color:var(--cream);
     font-family:inherit;
-    font-size:0.95rem;
+    font-size:16px;
   }
   form input::placeholder, form textarea::placeholder{color:rgba(251,247,239,0.5);}
   form textarea{resize:vertical; min-height:110px;}
@@ -887,7 +946,23 @@
 
   /* ---------- Responsive ---------- */
   @media(max-width:920px){
-    .nav-links{display:none;}
+    .nav-links{
+      display:none;
+      position:absolute;
+      top:100%; left:0; right:0;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      background:var(--cream);
+      border-bottom:1px solid rgba(51,57,47,0.08);
+      box-shadow:var(--shadow);
+      padding:8px 32px 20px;
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{width:100%; padding:12px 0; border-bottom:1px solid rgba(51,57,47,0.06);}
+    .nav-links a.nav-cta{
+      width:auto; border-bottom:none; text-align:center; margin-top:14px;
+    }
     .burger{display:block;}
     .hero .container, .about-grid, .gallery-feature, .video-wrap, .placeholder-card, .contact-grid{
       grid-template-columns:1fr;
@@ -898,6 +973,91 @@
     .obj-list{grid-template-columns:1fr;}
     .contact{border-radius:24px 24px 0 0;}
     .sessions-grid{grid-template-columns:1fr 1fr;}
+  }
+
+  /* ---------- Mobile fine-tuning (mantiene la misma estética, ajusta espaciados/tamaños) ---------- */
+  @media(max-width:640px){
+    .container{padding:0 20px;}
+
+    nav{padding:14px 20px;}
+    .logo{font-size:1.45rem;}
+
+    .hero{padding:36px 0 24px;}
+    .hero h1{font-size:clamp(2rem, 8vw, 2.4rem); margin-bottom:16px;}
+    .hero p.lead{font-size:1rem; max-width:none; margin-bottom:26px;}
+    .btn{padding:12px 22px; font-size:0.9rem;}
+    .hero-visual .frame{width:100%; transform:rotate(1deg);}
+    .hero-visual .badge{
+      left:12px; right:12px; bottom:-16px; min-width:0;
+      padding:12px 16px;
+    }
+    .hero-visual .badge-dots{left:24px;}
+
+    .section-head{margin-bottom:36px;}
+    .section-head h2{font-size:clamp(1.6rem, 7vw, 2rem);}
+    .felt-tag{font-size:1.15rem; padding:5px 18px;}
+
+    .about{padding:16px 0 10px;}
+    .about-grid{gap:44px;}
+    .timeline{padding-left:22px;}
+    .tl-item::before{left:-28px;}
+    .formacion-item{flex-direction:column; align-items:flex-start; gap:4px;}
+    .formacion-item span{text-align:left;}
+
+    .project-block{padding:48px 0;}
+    .project-block h3{font-size:1.6rem;}
+    .gallery-feature{gap:16px;}
+    .gallery-feature .main-img img{min-height:220px;}
+    .side-stack{gap:16px;}
+    .side-stack .ph img{min-height:120px;}
+    .mini-grid{grid-template-columns:1fr 1fr; gap:12px;}
+    .mini-card img{height:120px;}
+    .mini-card .label{font-size:0.78rem; padding:10px 12px;}
+
+    .video-wrap{padding:20px; gap:20px; border-radius:16px;}
+    .video-wrap video{max-height:280px;}
+
+    .obj-list{gap:12px;}
+    .obj-item{padding:15px 16px; font-size:0.88rem;}
+
+    .sessions-grid{grid-template-columns:1fr;}
+    .infografia-wrap .hotspot{width:30px; height:30px;}
+
+    .lightbox-overlay{padding:0;}
+    .lightbox-box{border-radius:0; max-height:100vh;}
+    .lightbox-text{padding:22px;}
+    .lightbox-close{top:14px; right:14px; width:38px; height:38px;}
+
+    .method{padding:56px 0;}
+    .method-grid{gap:16px; margin-top:34px;}
+    .method-card{padding:24px 20px;}
+    .quote-block{margin-top:40px;}
+    .quote-block p{font-size:1.15rem;}
+
+    .diversity{padding:56px 0;}
+    .diversity-block{margin-bottom:44px;}
+    .car-btn{width:38px; height:38px; font-size:1.2rem;}
+    .car-btn.prev{left:4px;}
+    .car-btn.next{right:4px;}
+    .infografia-row{padding:18px;}
+
+    .hover-grid{grid-template-columns:repeat(2,1fr); gap:12px;}
+    .flip-card-back strong{font-size:0.8rem;}
+    .flip-card-back p{font-size:0.7rem;}
+
+    .polaroid-duo{gap:20px;}
+    .polaroid{width:100%; max-width:260px;}
+
+    .contact{padding:56px 0; border-radius:20px 20px 0 0;}
+    .contact-grid{gap:36px;}
+    .contact-info .row{flex-direction:column; gap:4px; margin-bottom:16px; padding-bottom:14px;}
+    .contact-info .ic-label{width:auto;}
+    form button{align-self:stretch; text-align:center;}
+  }
+
+  /* Los flip-cards dependen de :hover, que no existe en táctil: en móvil se giran al tocar (ver JS) */
+  @media(hover:none){
+    .flip-card{cursor:pointer;}
   }
 </style>
 </head>
@@ -914,7 +1074,7 @@
       <a href="#metodologia">Metodología</a>
       <a href="#contacto" class="nav-cta">Contacto</a>
     </div>
-    <button class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <button class="burger" aria-label="Abrir menú" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
   </nav>
 </header>
 
@@ -1195,7 +1355,7 @@
       </div>
 
       <div class="hover-grid">
-        <div class="flip-card">
+        <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="flip-num">1</span>
@@ -1207,7 +1367,7 @@
             </div>
           </div>
         </div>
-        <div class="flip-card">
+        <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="flip-num">2</span>
@@ -1219,7 +1379,7 @@
             </div>
           </div>
         </div>
-        <div class="flip-card">
+        <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="flip-num">3</span>
@@ -1231,7 +1391,7 @@
             </div>
           </div>
         </div>
-        <div class="flip-card">
+        <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="flip-num">4</span>
@@ -1243,7 +1403,7 @@
             </div>
           </div>
         </div>
-        <div class="flip-card">
+        <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <span class="flip-num">5</span>
@@ -1256,7 +1416,7 @@
           </div>
         </div>
       </div>
-      <p class="caption">Pasa el cursor sobre cada imagen: la tarjeta se girará para contarte qué ocurre en esa zona del bosque.</p>
+      <p class="caption">Pasa el cursor sobre cada imagen (o tócala en móvil): la tarjeta se girará para contarte qué ocurre en esa zona del bosque.</p>
 
       <div class="sessions-block">
         <h4 class="sessions-title">Un recorrido por el bosque, zona a zona</h4>
@@ -1495,6 +1655,7 @@
   document.querySelectorAll('.lb-item').forEach(item => {
     item.addEventListener('click', () => {
       const img = item.querySelector('img');
+      lbImg.style.display = '';
       lbImg.src = img.src;
       lbImg.alt = img.alt;
       lbCaption.textContent = item.dataset.caption || '';
@@ -1505,6 +1666,25 @@
   function closeLightbox(){ lb.classList.remove('open'); }
   lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
   document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
+
+  function toggleMenu(btn){
+    const links = document.querySelector('.nav-links');
+    const isOpen = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    btn.textContent = isOpen ? '×' : '☰';
+  }
+  // Cierra el menú móvil al pulsar un enlace
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      const links = document.querySelector('.nav-links');
+      if(links.classList.contains('open')){
+        links.classList.remove('open');
+        const burger = document.querySelector('.burger');
+        burger.setAttribute('aria-expanded','false');
+        burger.textContent = '☰';
+      }
+    });
+  });
 
   const sessionData = {
     1: { title: 'Sesión 1 · Conocemos a Albert', text: 'En la asamblea, una caja sorpresa esconde al robot. Tras activar su modo "mascota", el grupo experimenta libremente con sus sensores de proximidad.' },
