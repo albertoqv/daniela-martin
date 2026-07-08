@@ -1,0 +1,17 @@
+{
+  "name": "Daniela Martín Osuna · Educación Infantil",
+  "short_name": "D. Martín Osuna",
+  "description": "Portfolio de Daniela Martín Osuna, maestra de Educación Infantil.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF7EF",
+  "theme_color": "#FBF7EF",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "img/favicon-daniela.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}
