@@ -936,6 +936,57 @@
   }
   form button:hover{transform:translateY(-2px);}
 
+  .contact-actions{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    justify-content:center;
+  }
+  .contact-actions p{
+    color:rgba(251,247,239,0.75);
+    font-size:0.95rem;
+    margin-bottom:6px;
+  }
+  .contact-btn{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 26px;
+    border-radius:16px;
+    font-weight:700;
+    font-size:1rem;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .contact-btn:hover{transform:translateY(-2px);}
+  .contact-btn .icon{
+    display:flex; align-items:center; justify-content:center;
+    width:42px; height:42px;
+    border-radius:50%;
+    background:rgba(251,247,239,0.12);
+    font-size:1.3rem;
+    flex-shrink:0;
+  }
+  .contact-btn .label small{
+    display:block;
+    font-weight:500;
+    font-size:0.8rem;
+    opacity:0.7;
+    margin-top:2px;
+  }
+  .contact-btn.whatsapp{
+    background:var(--sage-deep);
+    color:var(--white);
+  }
+  .contact-btn.email{
+    background:rgba(251,247,239,0.08);
+    color:var(--cream);
+    border:1px solid rgba(251,247,239,0.25);
+  }
+  .contact-btn.cv{
+    background:var(--butter);
+    color:var(--ink);
+  }
+
   footer{
     background:var(--ink);
     color:rgba(251,247,239,0.55);
@@ -1601,8 +1652,8 @@
   <div class="container">
     <div class="section-head">
       <span class="felt-tag" style="color:var(--coral-deep);">Contacto</span>
-      <h2>Hablemos de tu próxima aula</h2>
-      <p style="opacity:0.75;">Estoy disponible para incorporarme a un equipo docente. Escríbeme o déjame un mensaje aquí mismo.</p>
+      <h2>Hablemos</h2>
+      <p style="opacity:0.75;">Me encuentro disponible para incorporarme a un equipo docente. Puedes ponerte en contacto conmigo a través de los siguientes medios.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-info">
@@ -1618,17 +1669,22 @@
           <div class="ic-label">Email</div>
           <a href="mailto:dmartinosuna@gmail.com">dmartinosuna@gmail.com</a>
         </div>
-        <div class="row">
-          <div class="ic-label">Formación</div>
-          <span>Máster en Neuropedagogía · UCO</span>
-        </div>
       </div>
-      <form onsubmit="event.preventDefault(); alert('¡Gracias! Tu mensaje quedaría enviado a dmartinosuna@gmail.com (formulario de demostración).');">
-        <input type="text" placeholder="Tu nombre" required>
-        <input type="email" placeholder="Tu email" required>
-        <textarea placeholder="Cuéntame en qué proyecto o vacante estás pensando..." required></textarea>
-        <button type="submit">Enviar mensaje</button>
-      </form>
+      <div class="contact-actions">
+        <p>Elige la vía que te resulte más cómoda; responderé a la mayor brevedad posible.</p>
+        <a href="https://wa.me/34656727225" target="_blank" rel="noopener" class="contact-btn whatsapp">
+          <span class="icon">💬</span>
+          <span class="label">Escribir por WhatsApp<small>Respuesta directa y rápida</small></span>
+        </a>
+        <a href="mailto:dmartinosuna@gmail.com" class="contact-btn email">
+          <span class="icon">✉️</span>
+          <span class="label">Escribir por correo electrónico<small>dmartinosuna@gmail.com</small></span>
+        </a>
+        <a href="cv-daniela-martin-osuna.pdf" download class="contact-btn cv">
+          <span class="icon">📄</span>
+          <span class="label">Descargar mi currículum<small>Formato PDF</small></span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
